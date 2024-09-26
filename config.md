@@ -1,7 +1,7 @@
 # Honeycomb Refinery Configuration Documentation
 
 This is the documentation for the configuration file for Honeycomb's Refinery.
-It was automatically generated on 2024-09-13 at 18:50:43 UTC.
+It was automatically generated on 2024-09-25 at 17:18:16 UTC.
 
 ## The Config file
 
@@ -47,6 +47,7 @@ The remainder of this document describes the sections within the file and the fi
 - [gRPC Server Parameters](#grpc-server-parameters)
 - [Sample Cache](#sample-cache)
 - [Stress Relief](#stress-relief)
+- [OpAMP Configuration](#opamp-configuration)
 ## General Configuration
 
 `General` contains general configuration options that apply to the entire Refinery process.
@@ -1288,4 +1289,17 @@ This setting helps to prevent oscillations.
 - Eligible for live reload.
 - Type: `duration`
 - Default: `10s`
+
+## OpAMP Configuration
+
+`OpAMP` contains configuration for the opamp protocol
+### `OpAMPServerURL`
+
+OpAMPServerURL is the URL of the OpAMP server for this client.
+
+This setting is the URL of the OpAMP server for this client.
+
+- Not eligible for live reload.
+- Type: `string`
+- Default: `wss://127.0.0.1:4320/v1/opamp`
 

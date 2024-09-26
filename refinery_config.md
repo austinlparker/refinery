@@ -1275,3 +1275,17 @@ This setting helps to prevent oscillations.
 - Type: `duration`
 - Default: `10s`
 
+## OpAMP Configuration
+
+`OpAMP` contains configuration for the opamp protocol
+
+### `OpAMPServerURL`
+
+`OpAMPServerURL` is the URL of the OpAMP server for this client.
+
+This setting is the URL of the OpAMP server for this client.
+
+- Not eligible for live reload.
+- Type: `string`
+- Default: `wss://127.0.0.1:4320/v1/opamp`
+

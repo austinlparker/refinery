@@ -1,6 +1,7 @@
 package app
 
 import (
+	"github.com/honeycombio/refinery/agent"
 	"github.com/honeycombio/refinery/collect"
 	"github.com/honeycombio/refinery/config"
 	"github.com/honeycombio/refinery/logger"
@@ -15,6 +16,7 @@ type App struct {
 	PeerRouter     route.Router      `inject:"inline"`
 	Collector      collect.Collector `inject:""`
 	Metrics        metrics.Metrics   `inject:"genericMetrics"`
+	OpAMPAgent     *agent.Agent      `inject:""`
 
 	// Version is the build ID for Refinery so that the running process may answer
 	// requests for the version
@@ -51,6 +53,8 @@ func (a *App) Start() error {
 	a.Config.RegisterReloadCallback(func(configHash, rulesHash string) {
 		record_hashes("configuration change was detected and the configuration was reloaded.")
 	})
+
+	a.OpAMPAgent = agent.NewAgent(agent.Logger{Logger: a.Logger}, "refinery", a.Version, a.Config)
 
 	// launch our main routers to listen for incoming event traffic from both peers
 	// and external sources

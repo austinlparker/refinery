@@ -62,6 +62,7 @@ type MockConfig struct {
 	CfgMetadata                      []ConfigMetadata
 	CfgHash                          string
 	RulesHash                        string
+	GetOpAmpConfigVal                OpAMPConfig
 
 	Mux sync.RWMutex
 }
@@ -446,4 +447,11 @@ func (f *MockConfig) GetAdditionalAttributes() map[string]string {
 	defer f.Mux.RUnlock()
 
 	return f.AdditionalAttributes
+}
+
+func (f *MockConfig) GetOpAMPConfig() OpAMPConfig {
+	f.Mux.RLock()
+	defer f.Mux.RUnlock()
+
+	return f.GetOpAmpConfigVal
 }

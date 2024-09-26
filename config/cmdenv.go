@@ -52,6 +52,7 @@ type CmdEnv struct {
 	NoValidate            bool       `long:"no-validate" description:"Do not attempt to validate the configuration files. Makes --validate meaningless."`
 	WriteConfig           string     `long:"write-config" description:"After applying defaults, environment variables, and command line values, write the loaded configuration to the specified file as YAML and exit."`
 	WriteRules            string     `long:"write-rules" description:"After applying defaults, write the loaded rules to the specified file as YAML and exit."`
+	OpAMPServerURL        string     `long:"opamp-server-url" env:"REFINERY_OPAMP_SERVER_URL" description:"URL of the OpAMP server to use for remote management."`
 }
 
 func NewCmdEnvOptions(args []string) (*CmdEnv, error) {

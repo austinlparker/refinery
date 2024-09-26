@@ -204,7 +204,8 @@ groups:
       - name: SendKeyMode
         type: string
         valuetype: choice
-        choices: ["none", "all", "nonblank", "listedonly", "unlisted", "missingonly"]
+        choices:
+          ["none", "all", "nonblank", "listedonly", "unlisted", "missingonly"]
         default: "none"
         reload: true
         summary: controls how SendKey is used to replace or augment API keys used in incoming telemetry.
@@ -1791,3 +1792,16 @@ groups:
           If this duration is `0`, then Refinery will not start in stressed
           mode, which will provide faster startup at the possible cost of
           startup instability.
+  - name: "OpAMP"
+    title: "OpAMP Configuration"
+    description: contains configuration for the opamp protocol
+    fields:
+      - name: OpAMPServerURL
+        type: string
+        valuetype: assigndefault
+        default: "wss://127.0.0.1:4320/v1/opamp"
+        reload: false
+        firstversion: v2.0
+        summary: is the URL of the OpAMP server for this client.
+        description: >
+          This setting is the URL of the OpAMP server for this client.

@@ -68,6 +68,7 @@ type configContents struct {
 	GRPCServerParameters GRPCServerParameters      `yaml:"GRPCServerParameters"`
 	SampleCache          SampleCacheConfig         `yaml:"SampleCache"`
 	StressRelief         StressReliefConfig        `yaml:"StressRelief"`
+	OpAMP                OpAMPConfig               `yaml:"OpAMP"`
 }
 
 type GeneralConfig struct {
@@ -75,6 +76,10 @@ type GeneralConfig struct {
 	MinRefineryVersion   string   `yaml:"MinRefineryVersion" default:"v2.0"`
 	DatasetPrefix        string   `yaml:"DatasetPrefix" `
 	ConfigReloadInterval Duration `yaml:"ConfigReloadInterval" default:"15s"`
+}
+
+type OpAMPConfig struct {
+	OpAMPServerURL string `yaml:"OpAMPServerURL" cmdenv:"OpAMPServerURL" default:"ws://127.0.0.1:4320/v1/opamp"`
 }
 
 type NetworkConfig struct {
@@ -991,4 +996,11 @@ func (f *fileConfig) GetAdditionalAttributes() map[string]string {
 	defer f.mux.RUnlock()
 
 	return f.mainConfig.Specialized.AdditionalAttributes
+}
+
+func (f *fileConfig) GetOpAMPConfig() OpAMPConfig {
+	f.mux.RLock()
+	defer f.mux.RUnlock()
+
+	return f.mainConfig.OpAMP
 }

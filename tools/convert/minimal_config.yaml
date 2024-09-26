@@ -1,5 +1,5 @@
 # sample uncommented config file containing all possible fields
-# automatically generated on 2024-09-03 at 19:48:53 UTC
+# automatically generated on 2024-09-25 at 17:18:15 UTC
 General:
   ConfigurationVersion: 2
   MinRefineryVersion: "v2.0"
@@ -146,3 +146,5 @@ StressRelief:
   SamplingRate: 100
   MinimumActivationDuration: 10s
   MinimumStartupDuration: 3s
+OpAMP:
+  OpAMPServerURL: "wss://127.0.0.1:4320/v1/opamp"

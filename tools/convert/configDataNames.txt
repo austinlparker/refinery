@@ -1,5 +1,5 @@
 # Names of groups and fields in the new config file format.
-# Automatically generated on 2024-09-03 at 19:48:53 UTC.
+# Automatically generated on 2024-09-25 at 17:18:14 UTC.
 
 General:
   - ConfigurationVersion
@@ -255,4 +255,8 @@ StressRelief:
   - MinimumActivationDuration (originally StressRelief.MinimumActivationDuration)
 
   - MinimumStartupDuration (originally StressRelief.MinimumStartupDuration)
+
+
+OpAMP:
+  - OpAMPServerURL
 
